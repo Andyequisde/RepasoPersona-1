@@ -1,25 +1,26 @@
 using System;
 
-namespace RepasoPersona.Test
+
+namespace RepasoPersona.Core
 {
     public class EnteConSaldo
     {
-        public int Saldo { get; set; }
+        //public int Saldo { get; set; }
 
-        public void Debitar(double monto)
+        public void Debitar(double saldo)
         {
             if (monto <= 0)
                 throw new ArgumentException("El monto tiene que ser mayor a cero.");
 
-            if (monto > Efectivo)
+            if (monto > Saldo)
                 throw new InvalidOperationException("El monto supera al efectivo.");
-            Efectivo -= monto;
+            Saldo -= monto;
         }
         public void Acreditar(double monto)
         {
             if (monto <= 0)
                 throw new ArgumentException("El monto tiene que ser mayor a cero.");
-            Efectivo += monto;
+            Saldo += monto;
         }
     }
 }
